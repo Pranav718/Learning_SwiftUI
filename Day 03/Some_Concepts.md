@@ -1,4 +1,4 @@
-#Learning SwiftUI day 3
+# Learning SwiftUI day 3
 
 
 Swift has a rarely used operator called the ternary operator. It works with three values at once, which is where its name comes from: it checks a condition specified in the first value, and if it’s true returns the second value, but if it’s false returns the third value.
