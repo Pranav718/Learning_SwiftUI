@@ -5,7 +5,6 @@ Swift has a rarely used operator called the ternary operator. It works with thre
 The ternary operator is a condition plus true or false blocks all in one, split up by a question mark and a colon, all of which which makes it rather hard to read. Here’s an example:
 
 ```
-swift
 let firstCard = 11
 let secondCard = 10
 print(firstCard == secondCard ? "Cards are the same" : "Cards are different")
@@ -14,7 +13,6 @@ print(firstCard == secondCard ? "Cards are the same" : "Cards are different")
 It can also be written normally-
 
 ```
-swift
 if firstCard == secondCard{
 	print(“Cards are same”)
 }else{
@@ -26,7 +24,7 @@ if firstCard == secondCard{
 Switch-Case statements can be used instead of if and else statements:
 
 ```
-swift
+
 let weather=“sunny”
 switch weather{
 case “rain”:
