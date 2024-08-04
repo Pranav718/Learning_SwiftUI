@@ -18,3 +18,11 @@ Example 2:
 }
 var myNum = 23
 multbysix(number : &myNum)``
+
+Different names for parameters can be written in two words only i.e.
+
+``func justanexample(outername innername : Int){
+	//we'll use the inner name given to parameter during defining the function
+	print(“passing an argument using the inner name inside the func  : \(andarwala))
+}
+justanexample(outername : 25) //passing an argument using the outer name outside the func ``
