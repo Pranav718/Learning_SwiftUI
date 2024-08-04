@@ -37,4 +37,4 @@ default:
 	print(“enjoy your day”)
 }
 ```
-Use fallthrough statement after last case so that swift can go across each cases i.e. if we dont use fallthrough statement then if 2 or more case statements are true,it'll only print the first time when case statement was true.
+Use fallthrough statement after each case so that swift can go across each cases i.e. if we dont use fallthrough statement then if 2 or more case statements are true,it'll only print the first time when case statement was true.
