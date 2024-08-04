@@ -6,7 +6,7 @@ For example, if you want to double a number in place – i.e., change the value
 }``
 
 To use that, you first need to make a variable integer – you can’t use constant integers with inout, because they might be changed. You also need to pass the parameter to doubleInPlace using an ampersand, &, before its name, which is an explicit recognition that you’re aware it is being used as inout.
-In code, you’d write this:
+In code, you’d write this :
 
 ``var myNum = 10 
 doubleInPlace(number: &myNum)``
