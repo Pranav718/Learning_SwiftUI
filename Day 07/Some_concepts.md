@@ -35,7 +35,7 @@ Learning from function examples and some concepts
 		addtoppings(5)
 	}
 	makepizza { (toppingscount : Int) in
-		let toppings = \[“onions”,”pepper”,”salami”]
+		let toppings = [“onions”,”pepper”,”salami”]
 		for i in 1…toppingscount{
 			let required = toppings[i]
 			print(“\(required) toppings added.”)
