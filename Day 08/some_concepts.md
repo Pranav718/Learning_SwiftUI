@@ -144,7 +144,6 @@ print(string.sorted())
 
 Strings have lots more properties and methods – try typing string. to bring up Xcode’s code completion options.
 
-
 Arrays are also structs, which means they too have their own methods and properties we can use to query and manipulate the array.
 
 Here’s a simple array to get us started:
