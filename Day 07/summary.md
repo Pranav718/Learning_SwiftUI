@@ -1,4 +1,4 @@
-#SUMMARY
+# Summary
 
 1.You can assign closures to variables, then call them later on.
 2.Closures can accept parameters and return values, like regular functions.
