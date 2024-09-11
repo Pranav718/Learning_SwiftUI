@@ -53,7 +53,7 @@ let student = school(age : 17, class : “class 12”, attendance : true , marks
 print(student.bonus)
 ```
 
-We can’t use let function inside a struct.
+We can’t use let modifier inside a struct.
 
 Property observers let us run code before or after any property changes. To demonstrate this, we’ll write a Progress struct that tracks a task and a completion percentage:
 ```
