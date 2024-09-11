@@ -1,3 +1,5 @@
+# Learning SwiftUI Day 05 Summary
+
 1. Functions let us re-use code without repeating ourselves.
 2. Functions can accept parameters – just tell Swift the type of each parameter.
 3. Functions can return values, and again you just specify what type will be sent back. Use tuples if you want to return several things.
