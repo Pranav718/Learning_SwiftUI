@@ -1,4 +1,4 @@
-# Learning SwiftUI Day 2 Summary
+# Learning SwiftUI Day 02 Summary
 
 1. Arrays, sets, tuples, and dictionaries let you store a group of items under a single value. They each do this in different ways, so which you use depends on the behavior you want.
 2. Arrays store items in the order you add them, and you access them using numerical positions.
