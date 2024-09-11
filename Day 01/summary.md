@@ -1,4 +1,4 @@
-# Learning SwiftUI Day1 Summary
+# Learning SwiftUI Day 1 Summary
 
 
 1. You make variables using var and constants using let. It’s preferable to use constants as often as possible.
