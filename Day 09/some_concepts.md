@@ -36,9 +36,8 @@ struct User {
 ```
 
 We don’t write func before initializers, but we do need to make sure all properties have a value before the initializer ends.
-
-```
 Now our initializer accepts no parameters, we need to create the struct like this:
+```
 var user = User()
 user.username = "Pranav718"
 ```
