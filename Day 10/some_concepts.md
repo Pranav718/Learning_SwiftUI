@@ -63,12 +63,12 @@ This difference means we can change any variable property on a class even when t
 
 ```
 class Singer {
-    var name = "Taylor Swift"
+    var name = "Post Malone"
 }
 
-let taylor = Singer()
-taylor.name = "Ed Sheeran"
-print(taylor.name)
+let post = Singer()
+post.name = "The Weeknd"
+print(post.name)
 ```
 
 ```
