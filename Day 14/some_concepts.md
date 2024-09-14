@@ -64,7 +64,7 @@ guard is designed exactly for this style of programming, and in fact does two th
 
 ```
 func printSquare(of number: Int?) {
-    guard let number = number else {
+    guard let unwrappedNumber = number else {
         print("Missing input")
 
         // 1: We *must* exit the function here
@@ -158,6 +158,10 @@ let user = (try? getUser(id: 23)) ?? "Anonymous user"
 ```
 As in the above function it throws error therefore the default value will be used that is "Anonymous user".
 
+We’ll find try? is mainly used in three places:
+1.In combination with guard let to exit the current function if the try? call returns nil.
+2.In combination with nil coalescing to attempt something or provide a default value on failure.
+3.When calling any throwing function without a return value, when you genuinely don’t care if it succeeded or not – maybe you’re writing to a log file or sending analytics to a server, for example.
 
 
 
