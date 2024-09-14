@@ -152,7 +152,7 @@ if let user = try? getUser(id: 23) {
 
 if try? succeeds, it puts into user but if it fails or throws any error it prints the above message.
 
-We can also combine try? with nil coalescing which means “attempt to get the return value from this function, but if it fails use this default value instead.” i.e. if we get the value it'll be assigned to user but if it fails to get the value(nil) or any errors, then it'll use the default value.
+We can also combine try? with nil coalescing which means “attempt to get the return value from this function, but if it fails use this default value instead.” i.e. if we get the value it'll be assigned to user but if it fails to get the value(which means it is nil) or any errors, then it'll use the default value.
 ```
 let user = (try? getUser(id: 23)) ?? "Anonymous user"
 ```
