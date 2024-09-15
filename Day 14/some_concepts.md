@@ -17,9 +17,9 @@ if let marioOpposite = opposites["Mario"] {
 ```
 This if let syntax is very common in Swift, and combines creating a condition (if) with creating a constant (let). Together, it does three things:
 
-1.It reads the optional value from the dictionary.
-2.If the optional has a string inside, it gets unwrapped – that means the string inside gets placed into the marioOpposite constant.
-3.The condition has succeeded – we were able to unwrap the optional – so the condition’s body is run.
+1.It reads the optional value from the dictionary.\n
+2.If the optional has a string inside, it gets unwrapped – that means the string inside gets placed into the marioOpposite constant. \n
+3.The condition has succeeded – we were able to unwrap the optional – so the condition’s body is run.\n
 
 The condition’s body will only be run if the optional had a value inside. Of course, if we want to add an else block we can – it’s just a normal condition, so this kind of code is fine:
 ```
