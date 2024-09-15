@@ -118,9 +118,13 @@ print("Next in line: \(chosen)")
 randomElement() returns an optional because the array might be empty.
 
 A very good exmaple to understand optional chaining in a better way:
+
 1.We have an optional instance of a Book struct – we might have a book to sort, or we might not.
+
 2.The book might have an author, or might be anonymous.
+
 3.If it does have an author string present, it might be an empty string or have text, so we can’t always rely on the first letter being there.
+
 4.If the first letter is there, make sure it’s uppercase so that authors with lowercase names such as bell hooks are sorted correctly.
 
 Here's how it would look in code:
@@ -162,8 +166,11 @@ As in the above function it throws error therefore the default value will be use
 
 We’ll find try? is mainly used in three places:
 1.In combination with guard let to exit the current function if the try? call returns nil.
+
 2.In combination with nil coalescing to attempt something or provide a default value on failure.
+
 3.When calling any throwing function without a return value, when you genuinely don’t care if it succeeded or not – maybe you’re writing to a log file or sending analytics to a server, for example.
+
 
 
 
