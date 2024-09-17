@@ -41,7 +41,7 @@ Form {
 
 Pickers, like text fields, need a two-way binding to a property so they can track their value. We already made an @State property for this purpose, called numberOfPeople, so our next job is to loop over all the numbers from 2 through to 99 and show them inside a picker.
 
-Modify the first section in your form to include a picker, like this:
+Modifying the first section in our form to include a picker, like this:
 ```
 Section {
     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
