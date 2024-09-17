@@ -44,6 +44,15 @@ Section {
 The row says “4 people”, but we gave our numberOfPeople property a default value of 2. 
 Well, it's because it treates the value of 2 like index so if we start a loop from 2 then it's 0th index would be 2,... and the 2nd index would be 4.
 
+One popular picker style is called navigation link, which moves the user to a new screen to select their option. To try it here, add the .pickerStyle(.navigationLink) modifier to our picker, like this:
+
+Picker("Number of people", selection: $numberOfPeople) {
+    ForEach(2 ..< 100) {
+        Text("\($0) people")
+    }
+}
+.pickerStyle(.navigationLink)
+
 
 
 
