@@ -1,20 +1,31 @@
+//
+//  ContentView.swift
+//  WeSplit
+//
+//  Created by Pranav Ray on 27/07/24.
+//
+
 import SwiftUI
 
 struct ContentView: View {
     @State private var checkAmount = 0.0
-    @State private var numberOfPeoples = 2
+    @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
-    
-    //let tipPercentages = [10, 15, 20, 25, 0]
-    
-    var totalPerPerson : Double{
-        let peopleCount = Double(numberOfPeoples + 2)
+
+    let tipPercentages = [10, 15, 20, 25, 0]
+
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
         let tipSelection = Double(tipPercentage)
-        let totalAmount = checkAmount + checkAmount/100 * tipSelection
-        let perPerson = totalAmount/peopleCount
-        return perPerson
+        
+        let tipValue = checkAmount / 100 * tipSelection
+        let grandTotal = checkAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+
+        return amountPerPerson
     }
+
     
     var totalAmountForCheck : Double {
         let tips = Double(tipPercentage)
@@ -23,39 +34,36 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationStack{
-            Form{
-                Section{
-                    TextField("Amount" , value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+        NavigationStack {
+            Form {
+                Section {
+                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
-                    Picker("Number of people", selection: $numberOfPeoples){
+
+                    Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2..<100) {
                             Text("\($0) people")
                         }
-                    }//.pickerStyle(.navigationLink)
+                    }
                 }
-                Section("How much do you want to tip?"){
-                    Picker("Tip percentage" ,selection: $tipPercentage){
-                        ForEach(0..<101){
+
+                Section("How much do you want to tip?") {
+                    Picker("Tip percentage", selection: $tipPercentage) {
+                        ForEach(tipPercentages, id: \.self) {
                             Text($0, format: .percent)
                         }
                     }
-                    //.pickerStyle(.segmented)
-                    .pickerStyle(.navigationLink)
+                    .pickerStyle(.segmented)
                 }
-                
-                
-                Section("Amount per person"){
+
+                Section {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                }
-                Section("Total amount for check") {
-                    Text(totalAmountForCheck, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
             }
             .navigationTitle("WeSplit")
-            .toolbar{
-                if amountIsFocused{
+            .toolbar {
+                if amountIsFocused {
                     Button("Done") {
                         amountIsFocused = false
                     }
