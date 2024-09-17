@@ -159,7 +159,7 @@ There’s not a lot of code in there, but it’s worth clarifying a few things:
 6. For each student we create one text view, showing that student’s name.
 
 
-When we’re using ForEach to create many views and SwiftUI asks us what identifier makes each item in our string array unique, our answer is \.self, which means “The strings themselves are unique.” This does of course mean that if we added duplicate strings to the students array you might hit problems, but here it’s just fine.
+When we’re using ForEach to create many views and SwiftUI asks us what identifier makes each item in our string array unique, our answer is \.self, which means “The strings themselves are unique.” This does of course mean that if we added duplicate strings to the students array we might hit problems, but here it’s just fine.
 
 
 
