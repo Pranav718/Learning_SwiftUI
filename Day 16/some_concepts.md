@@ -1,4 +1,4 @@
-Starting with our first project - WeSplit.
+**Starting with our first project - WeSplit.**
 
 In this project we’re going to be building a check-splitting app that we might use after eating at a restaurant – we enter the cost of our food, select how much of a tip we want to leave, and how many people we’re with, and it will tell us how much each person needs to pay.
 
