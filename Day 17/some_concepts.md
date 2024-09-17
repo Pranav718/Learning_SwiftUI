@@ -42,7 +42,7 @@ Section {
 ```
 
 The row says “4 people”, but we gave our numberOfPeople property a default value of 2. 
-Well, it's because it treates the value of 2 like index so if we start a loop from 2 then it's 0th index would be 2,
+Well, it's because it treates the value of 2 like index so if we start a loop from 2 then it's 0th index would be 2,... and the 2nd index would be 4.
 
 
 
