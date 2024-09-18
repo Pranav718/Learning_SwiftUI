@@ -14,7 +14,7 @@ var totalAmountForCheck : Double {
         let tips = Double(tipPercentage)
         let total = checkAmount + checkAmount/100 * tips
         return total
-    }
+}
 ```
 
 Then, we have to add another section after the third section in which we would show the total amount for check.
