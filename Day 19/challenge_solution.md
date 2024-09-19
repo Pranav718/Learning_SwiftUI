@@ -9,5 +9,7 @@ So basic overview of what we'll have in our app:
 4. A picker asking the user to select the output unit.
 5. Showing user the value asked in the output unit.
 
+
+Now that we know what things are required in our app, we can move forward to write some code.
    
    
