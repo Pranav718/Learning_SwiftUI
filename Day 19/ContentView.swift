@@ -51,7 +51,7 @@ struct ContentView: View {
             finalOutput = inputLength / 0.9144
         }
         else{
-            finalOutput = inputLength /
+            finalOutput = inputLength / 1.609344
         }
         
         return finalOutput
