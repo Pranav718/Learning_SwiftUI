@@ -63,21 +63,21 @@ ZStack{
 
 .ignoreSafeArea() puts the color above dynamic island as well as in left out areas where we couldn't fill the colors before.
 
-
+```
 ZStack {
     Text("Your content")
 }
 .background(.red)
+```
+That might have done what we expected, but there’s a good chance it was a surprise: only the text view had a background color, even though we’ve asked the whole ZStack to have it.
 
-That might have done what you expected, but there’s a good chance it was a surprise: only the text view had a background color, even though we’ve asked the whole ZStack to have it.
-
-If you want to fill in red the whole area behind the text, you should place the color into the ZStack – treat it as a whole view, all by itself:
-
+If we want to fill in red the whole area behind the text, we should place the color into the ZStack – treat it as a whole view, all by itself:
+```
 ZStack {
     Color.red
     Text("Your content")
 }
-
+```
 
 Colors automatically take up all the space available, but we can also use the frame() modifier to ask for specific sizes. For example, we could ask for a 200x200 red square like this:
 ```
@@ -94,6 +94,8 @@ If we need something specific, we can create custom colors by passing in values 
 ```
 Color(red: 1, green: 0.8, blue: 0)
 ```
+
+
 
 
 
