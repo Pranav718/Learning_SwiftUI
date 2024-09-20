@@ -100,7 +100,6 @@ For example, Color.primary is the default color of text in SwiftUI, and will be 
 
 
 **Gradients**
-
 Gradients are made up of several components:
    An array of colors to show 
    Size and direction information 
@@ -171,7 +170,16 @@ Button("Button 3") { }
 ```
 
 If we want something completely custom, we can pass a custom label using a second trailing closure:
-
+```
+Button {
+    print("Button was tapped")
+} label: {
+    Text("Tap me!")
+        .padding()
+        .foregroundStyle(.white)
+        .background(.red)
+}
+```
 
 
 
