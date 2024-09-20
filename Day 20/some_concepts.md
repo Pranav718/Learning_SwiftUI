@@ -95,12 +95,37 @@ If we need something specific, we can create custom colors by passing in values 
 Color(red: 1, green: 0.8, blue: 0)
 ```
 
+Semantic colors: colors that don’t say what hue they contain, but instead describe their purpose.
+For example, Color.primary is the default color of text in SwiftUI, and will be either black or white depending on whether the user’s device is running in light mode or dark mode. There’s also Color.secondary, which is also black or white depending on the device, but now has slight transparency so that a little of the color behind it shines through.
 
 
+**Gradients**
 
+Gradients are made up of several components:
+An array of colors to show 
+Size and direction information 
+The type of gradient to use 
 
+For example, a linear gradient goes in one direction, so we provide it with a start and end point like this:
+```
+LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
+```
 
+Tip: Swift knows we’re creating gradient stops here, so as a shortcut we can just write .init rather than Gradient.Stop, like this:
+```
+LinearGradient(stops: [
+    .init(color: .white, location: 0.45),
+    .init(color: .black, location: 0.55),
+], startPoint: .top, endPoint: .bottom)
+```
 
+For RadialGradient and AngularGradient, one example is enough to grasp its functionality: 
+```
+RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
+```
+```
+AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
+```
 
 
 
