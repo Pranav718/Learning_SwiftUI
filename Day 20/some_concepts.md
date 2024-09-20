@@ -102,9 +102,9 @@ For example, Color.primary is the default color of text in SwiftUI, and will be 
 **Gradients**
 
 Gradients are made up of several components:
-An array of colors to show 
-Size and direction information 
-The type of gradient to use 
+   An array of colors to show 
+   Size and direction information 
+   The type of gradient to use 
 
 For example, a linear gradient goes in one direction, so we provide it with a start and end point like this:
 ```
@@ -126,6 +126,60 @@ RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRad
 ```
 AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
 ```
+
+**Buttons**
+
+Simplest way of making one: 
+```
+Button("Delete selection") {
+    print("Now deleting…")
+}
+```
+
+It could take any function as argument too rather than using a closure for ex:-
+```
+Button(“Delete selection”, action: executedelete() )
+func executedelete(){
+	print(“Deleting now . . .”)
+}
+```
+
+We could say that our Delete button has a destructive role like this:
+```
+Button("Delete selection", role: .destructive, action: executeDelete)
+```
+
+We can use one of the built-in styles for buttons: .bordered and .borderedProminent. These can be used by themselves, or in combination with a role:
+```
+VStack {
+    Button("Button 1") { }
+        .buttonStyle(.bordered)
+    Button("Button 2", role: .destructive) { }
+        .buttonStyle(.bordered)
+    Button("Button 3") { }
+        .buttonStyle(.borderedProminent)
+    Button("Button 4", role: .destructive) { }
+        .buttonStyle(.borderedProminent)
+}
+```
+
+If we want to customize the colors used for a bordered button, use the tint() modifier like this:
+```
+Button("Button 3") { }
+    .buttonStyle(.borderedProminent)
+    .tint(.mint)
+```
+
+If we want something completely custom, we can pass a custom label using a second trailing closure:
+
+
+
+
+
+
+
+
+
 
 
 
