@@ -42,3 +42,73 @@ var body: some View {
     }
 }
 ```
+
+We will use shuffled() function so that the countries will be shuffled every time before calling
+```
+var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+```
+
+```
+@State private var showingScore = false
+
+@State private var scoreTitle = ""
+```
+
+To see if the button tapped is right or not we use the following function
+```
+func flagTapped(_ number: Int) {
+    if number == correctAnswer {
+        scoreTitle = "Correct"
+    } else {
+        scoreTitle = "Wrong"
+    }
+
+    showingScore = true
+}
+```
+
+Now replace the "\\ flag was tapped" button with calling the function
+```
+flagTapped(number)
+```
+
+Now we’re going to write an askQuestion() method that resets the game by shuffling up the countries and picking a new correct answer:
+```
+func askQuestion() {
+    countries.shuffle()
+    correctAnswer = Int.random(in: 0...2)
+}
+```
+
+Now we need to change the variables "countries" and "correctAnswer" to @State private var variables
+```
+@State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+@State private var correctAnswer = Int.random(in: 0...2)
+```
+
+Now we’re ready to show the alert. This needs to:
+
+1. Use the alert() modifier so the alert gets presented when showingScore is true.
+2. Show the title we set in scoreTitle.
+3. Have a dismiss button that calls askQuestion() when tapped.
+
+So put the alert modifier at the end of the Zstack in the body property
+```
+.alert(scoreTitle, isPresented: $showingScore) {
+    Button("Continue", action: askQuestion)
+} message: {
+    Text("Your score is ???")
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
