@@ -183,11 +183,11 @@ For the white “Tap the flag of”, we can have that use the iOS vibrancy effec
 ```
 
 There are four spacers we have to add:
-    1.One directly before the “Guess the Flag” title.
-    2.Two (yes, two) directly before the “Score: ???” text.
-    3.And one directly after the “Score: ???” text.
+    One, directly before the “Guess the Flag” title.
+    Two, directly before the “Score: ???” text.
+    Third, And one directly after the “Score: ???” text.
 
-And a little padding around the VStack
+And a little padding around the VStack.
 
 
 
