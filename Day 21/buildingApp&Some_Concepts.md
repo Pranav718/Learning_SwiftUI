@@ -101,8 +101,93 @@ So put the alert modifier at the end of the Zstack in the body property
 }
 ```
 
+Now we are modifying our backround from blue to a linear gradient so that the background looks clean and any flag with blue colour would stand out
+replacing:
+```
+Color.blue
+    .ignoredSafeArea()
+```
 
+to:
+```
+LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
+    .ignoresSafeArea()
+```
 
+Now using font() modifier to select built in size from iOS and weight() modifier for semi bold, bold or any weight type .
+Adding this after:
+```
+Text("Tap the flag of")
+    .font(.subheadline.weight(.heavy)))
+```
+And 
+```
+Text(countries[correctAnswer])
+    .font(.largeTitle.weight(.bold))
+```
+
+Now Making our image capsule shaped is as easy as adding the .clipShape(.capsule) modifier and a shadow modifier to stand out, like this:
+```
+Image(countries[number])
+    .clipShape(.capsule)
+    .shadow(radius: 5)
+```
+
+Now in order to make our UI more nice, we are replacing lineargradient color with a radial gradient color with start radius and end radius
+```
+RadialGradient(stops: [
+    .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
+    .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
+], center: .top, startRadius: 200, endRadius: 700)
+    .ignoresSafeArea()
+```
+
+We reduce the vstack spacing from 30 to 15 because we want to make it a colored rectangle with rounded edges so that part of the game stands out on the screen.
+
+To do that, add these modifiers to the end of the same VStack:
+```
+.frame(maxWidth: .infinity)
+.padding(.vertical, 20)
+.background(.regularMaterial)
+.clipShape(.rect(cornerRadius: 20))
+```
+
+Our next step is to add a title before our main box, and a score placeholder after. This means another VStack around what we have so far, because the existing VStack(spacing: 15) we have is where we apply the material effect.
+
+So, we wrap our current VStack in a new one with a title at the top, like this:
+```
+VStack {
+    Text("Guess the Flag")
+        .font(.largeTitle.weight(.bold))
+        .foregroundStyle(.white)
+
+    // that VStack(spacing: 15) code
+}
+```
+
+Tip:  Asking for bold fonts is so common there’s actually a small shortcut: 
+```
+.font(.largeTitle.bold()).
+```
+
+We  also slot in a score label at the bottom of that new VStack, like this:
+```
+Text("Score: ???")
+    .foregroundStyle(.white)
+    .font(.title.bold())
+```
+
+For the white “Tap the flag of”, we can have that use the iOS vibrancy effect to let a little of the background color shine through. Change its foregroundStyle() modifier to this:
+```
+.foregroundStyle(.secondary)
+```
+
+There are four spacers we have to add:
+    1.One directly before the “Guess the Flag” title.
+    2.Two (yes, two) directly before the “Score: ???” text.
+    3.And one directly after the “Score: ???” text.
+
+And a little padding around the VStack
 
 
 
