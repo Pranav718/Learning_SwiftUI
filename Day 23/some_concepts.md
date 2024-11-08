@@ -22,3 +22,35 @@ struct ContentView: View {
 }
 ```
 
+If we have a property that could be either true or false, we can use that to control the foreground style of a button like this:
+
+```
+struct ContentView: View {
+    @State private var useRedText = false
+
+    var body: some View {
+        Button("Hello World") {
+            // flip the Boolean between true and false
+            useRedText.toggle()            
+        }
+        .foregroundStyle(useRedText ? .red : .blue)
+    }
+}
+```
+
+This kind of code might look the same, but it’s actually less efficient:
+```
+var body: some View {
+    if useRedText {
+        Button("Hello World") {
+            useRedText.toggle()
+        }
+        .foregroundStyle(.red)
+    } else {
+        Button("Hello World") {
+            useRedText.toggle()
+        }
+        .foregroundStyle(.blue)
+    }
+}
+```
