@@ -4,15 +4,21 @@ using "some View" is important for performance: SwiftUI needs to be able to look
 
 The View protocol has an associated type attached to it, which is Swift’s way of saying that View by itself doesn’t mean anything – we need to say exactly what kind of view it is.
 
-it’s not allowed to write a view like this:
+It’s not allowed to write a view like this:
+```
 struct ContentView: View {
     var body: View {
         Text("Hello, world!")
     }
 }
+```
+
 It is perfectly legal to write a view like this:
+```
 struct ContentView: View {
     var body: Text {
         Text("Hello, world!")
     }
 }
+```
+
