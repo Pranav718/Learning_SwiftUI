@@ -64,5 +64,19 @@ First add these in place to //flag was tapped
 ```
 
 Then:
+```
+        .alert(scoreTitle, isPresented: $showingScore){
+            Button("Continue", action: askquestion)
+        }message: {
+            Text(x)
+        }
+        .alert("Alert", isPresented: $newQuestions){
+                Button("Restart", action: askquestion)
+        }message: {
+                Text("Your overall score was: \(scoreChecker)")
+        }
+    }
+
+``
 
 
