@@ -1,4 +1,4 @@
-#Challenges
+# Challenge
 
 1. Go back to project 1 and use a conditional modifier to change the total amount text view to red if the user selects a 0% tip.
    
