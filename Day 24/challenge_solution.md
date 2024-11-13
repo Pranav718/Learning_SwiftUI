@@ -35,3 +35,22 @@ ForEach(0..<3){ number in
               }
 ```
 
+3. For the third challenge,
+```
+import SwiftUI
+
+struct LargeBlueTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)     
+            .foregroundColor(.blue) 
+    }
+}
+
+extension View {
+    func largeBlueTitle() -> some View {
+        self.modifier(LargeBlueTitle())
+    }
+}
+```
+
