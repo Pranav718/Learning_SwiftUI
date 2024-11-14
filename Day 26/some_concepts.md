@@ -120,9 +120,27 @@ So, in Create ML look under Data and select “Select…” under the Training D
 
 Important: This CSV file contains sample data for the purpose of this project, and should not be used for actual health-related work.
 
+The rest of the part was really important and was explained in a very simple way thus I just noted it all:
+
+The next job is to decide the target, which is the value we want the computer to learn to predict, and the features, which are the values we want the computer to inspect in order to predict the target. For example, if we chose how much sleep someone thought they needed and how much sleep they actually needed as features, we could train the computer to predict how much coffee they drink.
+
+In this instance, I’d like you to choose “actualSleep” for the target, which means we want the computer to learn how to predict how much sleep they actually need. Now press Choose Features, and select all three options: wake, estimatedSleep, and coffee – we want the computer to take all three of those into account when producing its predictions.
+
+Below the Select Features button is a dropdown button for the algorithm, and there are five options: Automatic, Random Forest, Boosted Tree, Decision Tree, and Linear Regression. Each takes a different approach to analyzing data, but helpfully there is an Automatic option that attempts to choose the best algorithm automatically. It’s not always correct, and in fact it does limit the options we have quite dramatically, but for this project it’s more than good enough.
 
 
 
+
+
+When we’re ready, click the Train button in the window title bar. After a couple of seconds – our data is pretty small! – it will complete, and we’ll see a big checkmark telling you that everything went to plan.
+
+To see how the training went, select the Evaluation tab then choose Validation to see some result metrics. The value we care about is called Root Mean Squared Error, and we should get a value around about 170. This means on average the model was able to predict suggested accurate sleep time with an error of only 170 seconds, or three minutes.
+
+Tip: Create ML provides us with both Training and Validation statistics, and both are important. When we asked it to train using our data, it automatically split the data up: some to use for training its machine learning model, but then it held back a chunk for validation. This validation data is then used to check its model: it makes a prediction based on the input, then checks how far that prediction was off the real value that came from the data.
+
+Even better, if you go to the Output tab you’ll see an our finished model has a file size of 545 bytes or so. Create ML has taken 180KB of data, and condensed it down to just 545 bytes – almost nothing.
+
+545 bytes sounds tiny, but it’s worth adding that almost all of those bytes are metadata: the author name is in there, along with the names of all the fields: wake, estimatedSleep, coffee, and actualSleep.
 
 
 
