@@ -100,3 +100,31 @@ As an alternative, we can use the formatted() method directly on dates, passing 
 ```
 Text(Date.now.formatted(date: .long, time: .shortened))
 ```
+As our project this time introduces us to machine learning methods , here are some of the things I thought we should know,
+
+On-device machine learning is surprisingly easy thanks to two Apple frameworks: Core ML, and Create ML. The first of those lets us make apps using machine learning, and the second lets us create custom machine learning models of our own using a dedicated Create ML app that makes the whole process drag and drop. As a result of all this work, it’s now within the reach of anyone to add machine learning to their app.
+
+In this instance we are going to look at tabular regression which is a fancy name which means  that we can throw a load of spreadsheet-like data at Create ML and ask it to figure out the relationship between various values.
+
+Machine learning is done in two steps: we train the model, then we ask the model to make predictions. 
+Training is the process of the computer looking at all our data to figure out the relationship between all the values we have, and in large data sets it can take a long time – easily hours, potentially much longer. Prediction is done on device: we feed it the trained model, and it will use previous results to make estimates about new data.
+
+For the training process:
+Open XCode->XCode menu->Open Developer Tool->Create ML->Click new document->Tabular Regression->name your project->select your desktop
+
+The first step is to provide Create ML with some training data. This is the raw statistics for it to look at, which in our case consists of four values: when someone wanted to wake up, how much sleep they thought they liked to have, how much coffee they drink per day, and how much sleep they actually need.
+
+Paul has already provided this data for us in BetterRest.csv,which could be obtained from his github profile, which is in the project files for this project. This is a comma-separated values data set that Create ML can work with, and our first job is to import that.
+
+So, in Create ML look under Data and select “Select…” under the Training Data title. When we press “Select…” again it will open a file selection window, and we should choose BetterRest.csv.
+
+Important: This CSV file contains sample data for the purpose of this project, and should not be used for actual health-related work.
+
+
+
+
+
+
+
+
+
