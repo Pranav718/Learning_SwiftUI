@@ -142,6 +142,13 @@ Even better, if you go to the Output tab you’ll see an our finished model has 
 
 545 bytes sounds tiny, but it’s worth adding that almost all of those bytes are metadata: the author name is in there, along with the names of all the fields: wake, estimatedSleep, coffee, and actualSleep.
 
+The actual amount of space taken up by the hard data – how to predict the amount of required sleep based on our three variables – is well under 100 bytes. This is possible because Create ML doesn’t actually care what the values are, it only cares what the relationships are. So, it spent a couple of billion CPU cycles trying out various combinations of weights for each of the features to see which ones produce the closest value to the actual target, and once it knows the best algorithm it simply stores that.
+
+Now that our model is trained, we'd have to press the Get button to export it to our desktop, so we can use it in code.
+
+
+
+
 
 
 
