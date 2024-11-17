@@ -109,7 +109,25 @@ let prediction = try model.prediction(wake: Double(hour + minute), estimatedSlee
  Now we need to show users how much sleep they actually need and we are going to do that with the help of alert modifier
  First adding these:
  ```
- @State private var alertTitle = ""
+@State private var alertTitle = ""
 @State private var alertMessage = ""
 @State private var showingAlert = false
 ```
+
+replace the // something went wrong comment with some code that sets up a useful error message:
+```
+alertTitle = "Error"
+alertMessage = "Sorry, there was a problem calculating your bedtime."
+```
+
+Regardless of whether or not the prediction worked, we should show the alert. It might contain the results of their prediction or it might contain the error message, but it’s still useful. So, putting this at the end of calculateBedtime(), after the catch block:
+```
+showingAlert = true
+```
+
+Putting this directly after where we set the sleepTime constant:
+```
+alertTitle = "Your ideal bedtime is…"
+alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+```
+
