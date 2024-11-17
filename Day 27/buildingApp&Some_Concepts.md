@@ -104,3 +104,12 @@ let prediction = try model.prediction(wake: Double(hour + minute), estimatedSlee
 
 // more code here
 ```
+
+ prediction now contains how much sleep they actually need
+ Now we need to show users how much sleep they actually need and we are going to do that with the help of alert modifier
+ First adding these:
+ ```
+ @State private var alertTitle = ""
+@State private var alertMessage = ""
+@State private var showingAlert = false
+```
