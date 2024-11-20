@@ -131,3 +131,5 @@ alertTitle = "Your ideal bedtime is…"
 alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
 ```
 
+We’re going to add a computed property to our ContentView struct that contains a Date value referencing 7AM of the current day. This is surprisingly easy: we can just create a new DateComponents of our own, and use Calendar.current.date(from:) to convert those components into a full date.
+
