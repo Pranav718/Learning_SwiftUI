@@ -145,3 +145,33 @@ And now we can use that for the default value of wakeUp in place of Date.now:
 ```
 @State private var wakeUp = defaultWakeTime
 ```
+
+We can make defaultWakeTime a static variable, which means it belongs to the ContentView struct itself rather than a single instance of that struct. This in turn means defaultWakeTime can be read whenever we want, because it doesn’t rely on the existence of any other properties.
+
+So, change the property definition to this:
+```
+static var defaultWakeTime: Date {
+```
+
+Creating a form , 
+```
+NavigationStack {
+    Form {
+```
+
+```
+VStack(alignment: .leading, spacing: 0) {
+    Text("Desired amount of sleep")
+        .font(.headline)
+
+    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
+}
+```
+
+Writing "cup(s)" works, but it's a bit lazy. Ideally we'd show "1 cup", but "2 cups", "3 cups", and so on – we'd have correct plurals here.
+We could correct that with a ternary operator like this:
+```
+Stepper(coffeeAmount == 1 ? "1 cup" : "\(coffeeAmount) cup(s)", value: $coffeeAmount, in: 1...20)
+```
+
+
