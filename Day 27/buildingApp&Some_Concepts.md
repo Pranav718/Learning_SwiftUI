@@ -132,4 +132,16 @@ alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
 ```
 
 We’re going to add a computed property to our ContentView struct that contains a Date value referencing 7AM of the current day. This is surprisingly easy: we can just create a new DateComponents of our own, and use Calendar.current.date(from:) to convert those components into a full date.
+```
+var defaultWakeTime: Date {
+    var components = DateComponents()
+    components.hour = 7
+    components.minute = 0
+    return Calendar.current.date(from: components) ?? .now
+}
+```
 
+And now we can use that for the default value of wakeUp in place of Date.now:
+```
+@State private var wakeUp = defaultWakeTime
+```
