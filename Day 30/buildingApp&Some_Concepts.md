@@ -86,11 +86,15 @@ withAnimation {
 
 
 Now, write a new method called startGame() that will:
-1.Find start.txt in our bundle
-2.Load it into a string
-3.Split that string into array of strings, with each element being one word
-4.Pick one random word from there to be assigned to rootWord, or use a sensible default if the array is empty
 
+1.Find start.txt in our bundle
+
+2.Load it into a string
+
+3.Split that string into array of strings, with each element being one word
+
+4.Pick one random word from there to be assigned to rootWord, or use a sensible default if the array is empty
+```
 func startGame() {
     // 1. Find the URL for start.txt in our app bundle
     if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
@@ -110,22 +114,25 @@ func startGame() {
     // If were are *here* then there was a problem – trigger a crash and report the error
     fatalError("Could not load start.txt from bundle.")
 }
-
+```
 
 SwiftUI gives us a dedicated view modifier for running a closure when a view is shown, so we can use that to call startGame() and get things moving – add this modifier after onSubmit():
+```
 .onAppear(perform: startGame)
-
+```
 
 
 Now that our game is all set up, the last part of this project is to make sure the user can’t enter invalid words
-Let’s start with the first method: this will accept a string as its only parameter, and return true or false depending on whether the word has been used before or not. We already have a usedWords array, so we can pass the word into its contains() method and send the result back like this:
 
+Let’s start with the first method: this will accept a string as its only parameter, and return true or false depending on whether the word has been used before or not. We already have a usedWords array, so we can pass the word into its contains() method and send the result back like this:
+```
 func isOriginal(word: String) -> Bool {
     !usedWords.contains(word)
 }
+```
 
 So, here’s our second method:
-
+```
 func isPossible(word: String) -> Bool {
     var tempWord = rootWord
 
@@ -139,11 +146,12 @@ func isPossible(word: String) -> Bool {
 
     return true
 }
+```
 
 So, our last method will make an instance of UITextChecker, which is responsible for scanning strings for misspelled words. We’ll then create an NSRange to scan the entire length of our string, then call rangeOfMisspelledWord() on our text checker so that it looks for wrong words. When that finishes we’ll get back another NSRange telling us where the misspelled word was found, but if the word was OK the location for that range will be the special value NSNotFound.
 
 So, here’s our final method:
-
+```
 func isReal(word: String) -> Bool {
     let checker = UITextChecker()
     let range = NSRange(location: 0, length: word.utf16.count)
@@ -151,3 +159,4 @@ func isReal(word: String) -> Bool {
 
     return misspelledRange.location == NSNotFound
 }
+```
