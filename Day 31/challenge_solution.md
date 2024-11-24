@@ -30,11 +30,78 @@ guard sameWord(word: answer) else {
 }
 ```
 
+
+
 ****Second Challenge****
 
-Just adding a toolbar modifier after a navigation stack with a button that would call the startGame thus changing the words
+Just adding a toolbar modifier after the navigation stack with a button that would call the startGame thus changing the words
 ```
 .toolbar{
     Button("Next", action: startGame)
 }
+```
+
+
+
+****Third Challenge****
+
+We have to create a new variable named scoreCounter and would give points related to how long the word is, for which would write the code in ```isPossible()``` property
+```
+@State private var scoreCounter = 0
+```
+
+```
+func isPossible(word: String) -> Bool{
+        var tempWord = rootWord
+        for letter in word{
+            if let pos = tempWord.firstIndex(of: letter){
+                tempWord.remove(at: pos)
+                scoreCounter += 1
+            }else{
+                return false
+            }
+        }
+        return true
+    }
+
+```
+
+Now for the UI stuffs, it could be as simple as a section above the used words list which woulf update and show the score after every word.
+Just for the fun and extra nice UI, I added game rules too in a cool way.
+
+```
+Section{
+      Text("Game rules")
+          .font(.title2)
+          .fontWeight(.bold)
+      VStack{
+          HStack{
+              Image(systemName: "star.fill")
+                  .imageScale(.small)
+              Text("The entered word should contain 3 or more letters.")
+          }
+          .padding(0.17)
+          
+          HStack{
+              Image(systemName: "star.fill")
+                  .imageScale(.small)
+              Text("The entered word should not contain the word that is given.")
+          }
+          .padding(0.16)
+          
+          HStack{
+              Image(systemName: "star.fill")
+                  .imageScale(.small)
+              Text("For each correct word, a point would be awarded which will be the same as the length of the word.")
+          }
+          .padding(0.17)
+          
+      }
+  }
+  
+  Section{
+      Text("Your score: \(scoreCounter)")
+          .font(.title3)
+          .fontWeight(.semibold)
+  }
 ```
