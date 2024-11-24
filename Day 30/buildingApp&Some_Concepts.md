@@ -160,3 +160,54 @@ func isReal(word: String) -> Bool {
     return misspelledRange.location == NSNotFound
 }
 ```
+
+Now for making alerts easier, 
+```
+@State private var errorTitle = ""
+@State private var errorMessage = ""
+@State private var showingError = false
+```
+
+Adding  a method that sets the title and message based on the parameters it receives, then flips the showingError Boolean to true:
+```
+func wordError(title: String, message: String) {
+    errorTitle = title
+    errorMessage = message
+    showingError = true
+}
+```
+
+Passing this below ```.onAppear()``` :
+```
+.alert(errorTitle, isPresented: $showingError) {
+    Button("OK") { }
+} message: {
+    Text(errorMessage)
+}
+```
+
+Note: If we don't include any buttons in the code, we automatically get a simple "OK" button that dismisses the alert.
+Example from the following line of code we'll get a simple "OK" button that would dismiss the alert.
+```
+.alert(errorTitle, isPresented: $showingError) { } message: {
+    Text(errorMessage)
+}
+```
+
+Finishing our  ```// extra validation to come```  comment in addNewWord() with this:
+```
+guard isOriginal(word: answer) else {
+    wordError(title: "Word used already", message: "Be more original")
+    return
+}
+
+guard isPossible(word: answer) else {
+    wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+    return
+}
+
+guard isReal(word: answer) else {
+    wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+    return
+}
+```
