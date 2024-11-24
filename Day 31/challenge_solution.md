@@ -105,3 +105,29 @@ Section{
           .fontWeight(.semibold)
   }
 ```
+
+
+After all these lines of code, now for challenge 2 and challenge 3, we have to add the following two lines of code in ```startGame()``` property, one that would set score 0 and one that would make the usedWords array empty whenever it is called like when we call it in toolbar.
+```
+func startGame(){
+    scoreCounter = 0
+    usedWords = []
+    //1.Find the url for start.txt from the app bundle
+    if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt"){
+        //2. Load start.txt into a string
+        if let startWords = try? String(contentsOf: startWordsURL){
+            //3.Split the string into an array of strings splitting on newline characters
+            let allWords = startWords.components(separatedBy: "\n")
+            
+            //4. Pick one random word or use "silkworm" as default
+            rootWord = allWords.randomElement() ?? "Silkworm"
+            
+            //5. If we are here, everything worked so we have to exit
+            return
+        }
+    }
+    
+    // If were are here then there was a problem – trigger a crash and report the error
+    fatalError("Could not load start.txt from bundle.")
+}
+```
