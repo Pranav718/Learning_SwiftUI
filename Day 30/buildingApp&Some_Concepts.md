@@ -1,8 +1,10 @@
 We need
 
-1.An array of words already used
-2.Root word for them to spell other words from
-3.a string we can bind to a text field
+1. An array of words already used
+
+2. Root word for them to spell other words from
+
+3. A string we can bind to a text field
 ```
 @State private var usedWords = [String]()
 @State private var rootWord = ""
