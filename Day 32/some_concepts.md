@@ -118,3 +118,9 @@ struct ContentView: View {
 }
 ```
 
+We can also make that animation bouncy by, adding these modifiers
+```
+withAnimation(.spring(duration: 1, bounce: 0.5)) {
+    animationAmount += 360
+}
+```
